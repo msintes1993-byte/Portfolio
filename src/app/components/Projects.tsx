@@ -1,7 +1,10 @@
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { TechnicalGlyphIndicator, GLYPH_SETS } from './TechnicalGlyphIndicator';
+import { useNavigate } from 'react-router-dom';
+import { ExternalLink } from 'lucide-react';
 
 export function Projects() {
+  const navigate = useNavigate();
   const projects = [
     {
       id: '03',
@@ -83,6 +86,30 @@ export function Projects() {
                       </div>
                     ))}
                   </div>
+
+                  {/* View Case Study Button */}
+                  <button
+                    onClick={() => navigate(`/project/${project.id}`)}
+                    className="flex items-center gap-[16px] px-[24px] py-[12px] bg-primary border border-foreground transition-all duration-150 mt-4"
+                    style={{
+                      boxShadow: '4px 4px 0px var(--foreground)',
+                      fontFamily: 'var(--font-family-body)',
+                      fontSize: 'var(--text-label)',
+                      fontWeight: 'var(--font-weight-bold)',
+                      letterSpacing: 'var(--letter-spacing-button)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.boxShadow = '6px 6px 0px var(--foreground)';
+                      e.currentTarget.style.transform = 'translate(-2px, -2px)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.boxShadow = '4px 4px 0px var(--foreground)';
+                      e.currentTarget.style.transform = 'translate(0, 0)';
+                    }}
+                  >
+                    <span className="text-primary-foreground">VIEW CASE STUDY</span>
+                    <ExternalLink size={16} className="text-primary-foreground" />
+                  </button>
                 </div>
 
                 {/* Project Image */}

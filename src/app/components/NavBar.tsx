@@ -239,21 +239,9 @@ export function NavBar({ className }: { className?: string }) {
 
           {/* Tablet/Mobile Buttons */}
           <div className="flex gap-[16px] md:gap-[24px] items-center">
-            <div className="hidden md:flex gap-[16px]">
-              <NavButton icon={<IconArrowSquareUpRight className="relative shrink-0 size-[24px]" />} scrollTo="projects">
-                PROJECTS
-              </NavButton>
-              <NavButton icon={<IconUsers className="relative shrink-0 size-[24px]" />} scrollTo="contact">
-                CONTACT
-              </NavButton>
-            </div>
-            
-            {/* Language Switcher Tablet */}
-            <LangSwitch className="content-stretch cursor-pointer hidden md:flex gap-[2px] items-center relative shrink-0 scale-90" />
-
-            {/* Hamburger Menu Mobile */}
+            {/* Hamburger Menu */}
             <motion.button 
-              className="content-stretch md:hidden flex items-center justify-center p-[8px] relative shrink-0 bg-primary"
+              className="content-stretch flex items-center justify-center p-[8px] relative shrink-0 bg-primary"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.15, ease: "linear" }}
@@ -270,7 +258,7 @@ export function NavBar({ className }: { className?: string }) {
         <>
           {/* Overlay */}
           <motion.div
-            className="fixed inset-0 bg-foreground/60 z-40 md:hidden"
+            className="fixed inset-0 bg-foreground/60 z-40 lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -280,7 +268,7 @@ export function NavBar({ className }: { className?: string }) {
           
           {/* Drawer */}
           <motion.div
-            className="fixed right-0 top-0 bottom-0 w-[280px] bg-popover border-l border-foreground z-50 md:hidden"
+            className="fixed right-0 top-0 bottom-0 w-[280px] bg-popover border-l border-foreground z-50 lg:hidden"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
